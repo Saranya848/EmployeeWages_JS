@@ -1,6 +1,8 @@
 //UC1-Check employee is present or not
+'use strict';
 //Assigning Present value as 1
 const isPresent = 1;
+
 //generating random value using math.random() function
 let empCheck=Math.floor(Math.random() *10) %2;
 //if employee check is 1 then it gives present
@@ -23,8 +25,29 @@ else{
     let employeeCheck = Math.floor(Math.random() * 10 % 3);
     let empWage;
 
-    let option = Math.floor(Math.random() * 10 % 3);
-    switch(option){
+    let option = Math.floor(Math.random() * 10 % 5);
+  
+    //const ps = require("prompt-sync");
+    //const prompt = ps();
+
+    //let option = prompt("Enter choice: ");
+    //let choice = `${option}`;
+    switch(choice){
+        //UC5-Calculating Wages till working hrs or working days
+        case 5:
+            const WORKING_DAYS_IN_MONTH = 20;
+            const MAX_HOURS_IN_MONTH = 160;
+            empHours = 0;
+            let workingDays = 0;
+            while ((workingDays < WORKING_DAYS_IN_MONTH) && empHours <= MAX_HOURS_IN_MONTH) {
+                workingDays++;
+                let employeeCheck = Math.floor(Math.random() * 10 % 3);
+                empHours += getWorkingHours(employeeCheck);
+            }
+        
+            empWage = empHours * WAGE_PER_HOUR;
+            console.log('Total Working Days ' + workingDays + ' Total Emp Hours ' + empHours + ' Employee Monthly Wage ' + empWage);
+        break;
         //Uc4-Calculating Wages for Months
         case 4:
             let num_of_working_days = 20;
